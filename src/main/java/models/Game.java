@@ -16,6 +16,16 @@ public class Game {
 
     public Game(){
         // initialize a new game such that each column can store cards
+         java.util.List<Card> cards_one = new ArrayList<>();
+        java.util.List<Card> cards_two = new ArrayList<>();
+        java.util.List<Card> cards_three = new ArrayList<>();
+        java.util.List<Card> cards_four = new ArrayList<>();
+
+        cols.add(cards_one);
+        cols.add(cards_two);
+        cols.add(cards_three);
+        cols.add(cards_four);
+    
     }
 
     public void buildDeck() {
@@ -33,6 +43,15 @@ public class Game {
 
     public void dealFour() {
         // remove the top card from the deck and add it to a column; repeat for each of the four columns
+        cols.get(0).add(deck.get(0));
+        cols.get(1).add(deck.get(1));
+        cols.get(2).add(deck.get(2));
+        cols.get(3).add(deck.get(3));
+        deck.remove(0);
+        deck.remove(0);
+        deck.remove(0);
+        deck.remove(0);
+    
     }
 
     public void remove(int columnNumber) {
@@ -41,7 +60,13 @@ public class Game {
 
     private boolean columnHasCards(int columnNumber) {
         // check indicated column for number of cards; if no cards return false, otherwise return true
-        return false;
+     if(cols.contains(columnNumber))
+
+            return true;
+        else
+            return false;
+
+
     }
 
     private Card getTopCard(int columnNumber) {
