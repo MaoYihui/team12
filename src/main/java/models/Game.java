@@ -29,21 +29,6 @@ public class Game {
 
     public void shuffle() {
         // shuffles the deck so that it is random
-        Card temp_card;
-
-        int min = 0;
-        int max = 51;
-
-
-        for (int i = 0; i < 50; i++)
-        {
-            Random random = new Random();
-            int s = random.nextInt(max)%(max-min+1) + min;
-
-            temp_card = deck.get(s);
-            deck.set(s, deck.get(0));
-            deck.set(0, temp_card);
-        }
     }
 
     public void dealFour() {
