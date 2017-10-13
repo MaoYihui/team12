@@ -51,6 +51,16 @@ public class Game {
 
     public void move(int columnFrom, int columnTo) {
         // remove the top card from the columnFrom column, add it to the columnTo column
+        int a;
+        a=cols.get(columnTo).size();
+        //System.out.println("\\\\\\\\\\\\\\\\a="+a);
+        if (a==0) {
+
+            addCardToCol(columnTo, this.cols.get(columnFrom).get(this.cols.get(columnFrom).size() - 1));
+            removeCardFromCol(columnFrom);
+            // System.out.println("---------column="+columnFrom);
+            //addCardToCol(columnTo,this.cols.get(columnFrom).get(this.cols.get(columnFrom).size()-1));
+        }
     }
 
     private void addCardToCol(int columnTo, Card cardToMove) {
