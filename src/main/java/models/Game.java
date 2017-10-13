@@ -52,6 +52,20 @@ public class Game {
 
     public void remove(int columnNumber) {
         // remove the top card from the indicated column
+        int count=0;
+        int num=0;
+        for(int i=0; i<4; i++){
+            if(cols.get(i).size()!=0) {
+                if (cols.get(columnNumber).get(cols.get(columnNumber).size() - 1).getSuit() == cols.get(i).get(cols.get(i).size() - 1).getSuit()){
+                    count++;
+                if (cols.get(columnNumber).get(cols.get(columnNumber).size() - 1).getValue() < cols.get(i).get(cols.get(i).size() - 1).getValue())
+                    num++;}
+            }
+        }
+        if (count >1){
+            if (num>0)
+            cols.get(columnNumber).remove(cols.get(columnNumber).get(this.cols.get(columnNumber).size() - 1));
+        }
     }
 
     private boolean columnHasCards(int columnNumber) {
