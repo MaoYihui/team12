@@ -89,9 +89,10 @@
 </table>
 
 <button id="dealButton">Deal</button>
+<BR>Remove from: <button id="Remove1">Column1</button><button id="Remove2">Column2</button><button id="Remove3">Column3</button><button id="Remove4">Column4</button>
 
-<BR><font face="OCR A Std, monospace">        Move from column <input type="text" id="from_col"  /> to <input type="text" id="to_col"  /> <button id="moveButton">Move</button>
-    <p class="tip">Tips: If you want to remove the card, just CLICK it.</p>
+<BR>Move from column <input type="text" id="from_col"  /> to <input type="text" id="to_col"  /> <button id="moveButton">Move</button>
+
 <script>
 
 var game;
@@ -157,16 +158,16 @@ dataType:"json",
 }
 
 
-$("#c0").click(function(){
+$("#Remove1").click(function(){
     removeCard(0);
 });
-$("#c1").click(function(){
+$("#Remove2").click(function(){
     removeCard(1);
 });
-$("#c2").click(function(){
+$("#Remove3").click(function(){
     removeCard(2);
 });
-$("#c3").click(function(){
+$("#Remove4").click(function(){
     removeCard(3);
 });
 
@@ -174,6 +175,10 @@ $("#c3").click(function(){
 $("#moveButton").click(function(){
 var colFrom = $("#from_col").val();
 var colTo = $("#to_col").val();
+if((colFrom>3)||(colTo>3)){
+window.alert("TYPE WRONG!");
+}
+
 $.ajax({
   type: "POST",
   url: "/moveCard/"+colFrom+"/"+colTo,
@@ -181,6 +186,7 @@ $.ajax({
   success: function(data, status){console.log("Data: " + data + "\nStatus: " + status);
         game = data;
         display(data);},
+
   contentType:"application/json; charset=utf-8",
   dataType:"json",
 });
