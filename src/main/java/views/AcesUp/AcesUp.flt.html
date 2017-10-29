@@ -174,6 +174,11 @@ $("#c3").click(function(){
 $("#moveButton").click(function(){
 var colFrom = $("#from_col").val();
 var colTo = $("#to_col").val();
+
+if(colFrom > 3 || colTo > 3){
+    window.alert("TYPE WRONG!!");
+}
+
 $.ajax({
   type: "POST",
   url: "/moveCard/"+colFrom+"/"+colTo,
