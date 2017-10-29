@@ -1,18 +1,94 @@
+h1{
+text-align: center;
+border: 5px solid red;
+border-left-width: 0px;
+border-right-width: 0px;
+padding:10px;
+width: 200px;
+height:45px;
+font-family: "OCR A Std", monospace;
+background-color:white;
+color: yellow;
+text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 20px darkblue;
+
+margin-top: 20px;
+margin-bottom: 20px;
+margin-right: 140px;
+margin-left: 100px;
+}
+
+tr.title{
+color:red;
+box-sizing: border-box;
+
+font-weight: bold;
+
+}
+
 tr{
 width:500px;
+
+border-spacing: 10px 50px;
 }
 
 td{
+font-family: "OCR A Std", monospace;
 width:100px;
-height:20px;
+height:30px;
 text-align:center;
+border-radius: 5px;
+ margin: 50px 50px 75px 100px;
+ /* border: 3px solid #b3cce6;*/
+
+
+
 }
 
 .title{
 font-weight: bold;
+font-size:125%;
 }
 
 .cardLocation{
+font-family: "OCR A Std", monospace;
+color:white;
 width: 100px;
-background-color:#F0F0F0;
+background-color: black;
+border: 3px solid yellow;
 }
+
+#dealButton{
+    font-family: "OCR A Std", monospace;
+    cursor: pointer;
+    width: 66px;
+    height: 55px;
+    font-size:125%;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 5px dotted black;
+    padding: 5px;
+    background-clip: padding-box;
+    background: red;
+    color:white;
+}
+
+#moveButton{
+cursor: pointer;
+font-family: "OCR A Std", monospace;
+width: 46px;
+height: 25px;
+
+}
+
+.tip{
+
+font-family: "OCR A Std", monospace;
+
+}
+
+html{
+width:768px;
+height:1024px;
+
+}
+
