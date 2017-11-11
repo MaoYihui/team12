@@ -58,7 +58,7 @@ public class ApplicationController {
 
     public Result dealPost(Context context, Game g) {
         if(context.getRequestPath().contains("deal")){
-            g.setdealfour();
+            g.dealFour();
         }
         return Results.json().render(g);
     }
