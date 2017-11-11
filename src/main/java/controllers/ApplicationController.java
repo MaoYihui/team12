@@ -30,13 +30,19 @@ public class ApplicationController {
     public Result index() {
         return Results.html().template("views/AcesUp/AcesUp.flt.html");
     }
-    
+
+    public Result not_found() { return Results.html().template("views/system/404notFound.ftl.html"); }
+
+    public Result start_page() { return Results.html().template("views/home/start_page.ftl.html"); }
+
+    //public Result start_game() {return Results.html().template("views/system/404notFound.ftl.html");  }
+
     public Result gameGet(){
         Game g = new Game();
         g.buildDeck();
         g.shuffle();
         g.dealFour();
-
+        //columns c = new columns();
         return Results.json().render(g);
     }
 
@@ -48,7 +54,9 @@ public class ApplicationController {
     }
 
     public Result removeCard(Context context, @PathParam("column") int colNumber, Game g){
+    //public Result removeCard(Context context, @PathParam("column") int colNumber, columns c){
         g.remove(colNumber);
+        //cols.remove(colNumber);
         return Results.json().render(g);
     }
 
