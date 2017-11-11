@@ -154,11 +154,10 @@ public class Game {
         a=cols.get(columnTo).size();
         //System.out.println("\\\\\\\\\\\\\\\\a="+a);
         if (a==0) {
-
-           addCardToCol(columnTo, this.cols.get(columnFrom).get(this.cols.get(columnFrom).size() - 1));
-           // cols.addCardToCol(columnTo, this.cols.get_cards(columnFrom).get(this.cols.get_cards(columnFrom).size() - 1));
-            removeCardFromCol(columnFrom);
-            //addCardToCol(columnTo,this.cols.get(columnFrom).get(this.cols.get(columnFrom).size()-1));
+            if(this.cols.get(columnFrom).get(this.cols.get(columnFrom).size() - 1).getValue() == 14){
+                addCardToCol(columnTo, this.cols.get(columnFrom).get(this.cols.get(columnFrom).size() - 1));
+                removeCardFromCol(columnFrom);
+            }
         }
     }
 
