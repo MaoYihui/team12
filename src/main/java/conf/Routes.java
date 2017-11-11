@@ -46,7 +46,13 @@ public class Routes implements ApplicationRoutes {
         ///////////////////////////////////////////////////////////////////////
         // Index / Catchall shows index page
         ///////////////////////////////////////////////////////////////////////
-//        router.GET().route("/.*").with(ApplicationController.class, "index");
+        //router.GET().route("/.*").with(ApplicationController.class, "not_found");
+
+        ///////////////////////////////////////////////////////////////////////
+        // new page
+        ///////////////////////////////////////////////////////////////////////
+        router.GET().route("/start_page").with(ApplicationController.class, "start_page");
+
     }
 
 }

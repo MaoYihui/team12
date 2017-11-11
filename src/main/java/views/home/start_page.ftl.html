@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/assets/css/custom.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+<h1>Aces up</h1>>
+<button id="Button">start</button>
+
+
+
+
+
+
+<script>
+$("#Button").click(function(){
+$.ajax({
+type:"GET",
+url: "/start_page",
+
+success:function(){
+
+window.location.href = '/';},
+
+});
+});
+
+</script>>
+</body>
+
+
+</html>
