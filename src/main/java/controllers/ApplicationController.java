@@ -31,6 +31,12 @@ public class ApplicationController {
         return Results.html().template("views/AcesUp/AcesUp.flt.html");
     }
 
+    public Result spanish_index() {
+        return Results.html().template("views/SpanishUp/SpanishUp.flt.html");
+    }
+
+
+
     public Result not_found() { return Results.html().template("views/system/404notFound.ftl.html"); }
 
     public Result start_page() { return Results.html().template("views/home/start_page.ftl.html"); }
@@ -39,34 +45,39 @@ public class ApplicationController {
 
     public Result gameGet(){
         Game g = new Game();
+        g.deck.buildDeck();
 
-        g.buildDeck();
-        g.shuffle();
-        g.dealFour();
-        //columns c = new columns();
+        //g.buildDeck();
+        g.deck.shuffle();
 
-       
-
-      
-       
-
-        
-
+        g.setdealfour();
 
         return Results.json().render(g);
     }
 
+    public Result spanish_gameGet(){
+        Game s_g = new Game();
+        s_g.deck.spanish_buildDeck();
+
+        //g.buildDeck();
+        s_g.deck.spanish_shuffle();
+
+        s_g.setdealfour();
+
+        return Results.json().render(s_g);
+    }
+
+
+
     public Result dealPost(Context context, Game g) {
         if(context.getRequestPath().contains("deal")){
-            g.dealFour();
+            g.setdealfour();
         }
         return Results.json().render(g);
     }
 
     public Result removeCard(Context context, @PathParam("column") int colNumber, Game g){
-    //public Result removeCard(Context context, @PathParam("column") int colNumber, columns c){
         g.remove(colNumber);
-        //cols.remove(colNumber);
         return Results.json().render(g);
     }
 
