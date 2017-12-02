@@ -1,40 +1,14 @@
 package models;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.io.Serializable;
 import java.util.ArrayList;
-/*
-interface deck_issues{
-    void buildDeck();
-    Card get_card(int num);
-    void set_card(int s, Card card);
-    void remove_card(int num);
-
-}
-*/
-
-public class Deck /*implements deck_issues */{
-
-    public java.util.List<Card> deck=new ArrayList<>();
-
-//     Deck(){
-
-  //      deck = new ArrayList<>();
-
-    //}
-
-    //public java.util.List<Card> deck = new ArrayList<>();
-
-    //public java.util.List<java.util.List<Card>> cols = new ArrayList<>(4);
-
-    public void add_card(Card A){
-
-        deck.add(A);
-    }
+import java.util.Collections;
+import java.util.Random;
 
 
-    public void buildDeck( ) {
+public class Deck {
+
+    public java.util.List<Card> deck = new ArrayList<>();
+
+    public void buildDeck() {
         for(int i = 2; i < 15; i++){
             deck.add(new Card(i,Suit.Clubs));
             deck.add(new Card(i,Suit.Hearts));
@@ -42,28 +16,74 @@ public class Deck /*implements deck_issues */{
             deck.add(new Card(i,Suit.Spades));
         }
     }
-
-    public Card get_card(int num){
-
-        return deck.get(num);
+    public void spanish_buildDeck() {
+        deck.add(new Card(0,Suit.comodines));
+        for(int i = 1; i < 13; i++){
+            deck.add(new Card(i,Suit.bastos));
+            deck.add(new Card(i,Suit.oros));
+            deck.add(new Card(i,Suit.copas));
+            deck.add(new Card(i,Suit.espadas));
+        }
+        deck.add(new Card(0,Suit.comodines));
     }
 
-    public void  set_card(int s, Card card){
+    public void spanish_shuffle() {
+        // shuffles the deck so that it is random
+        Card temp_card;
 
-        deck.set(s, card);
+        int min = 0;
+        int max = 49;
+
+        for (int i = 0; i < 50; i++) {
+            Random random = new Random();
+            int s = random.nextInt(max) % (max - min + 1) + min;
+
+            temp_card = deck.get(s);
+            deck.set(s, deck.get(0));
+            deck.set(0, temp_card);
+        }
     }
-    public void remove_card(int num) {
 
 
-         deck.remove(num);
+
+
+    public void shuffle() {
+        // shuffles the deck so that it is random
+        Card temp_card;
+
+        int min = 0;
+        int max = 51;
+
+        for (int i = 0; i < 50; i++) {
+            Random random = new Random();
+            int s = random.nextInt(max) % (max - min + 1) + min;
+
+            temp_card = deck.get(s);
+            deck.set(s, deck.get(0));
+            deck.set(0, temp_card);
+        }
     }
-
-    public java.util.List<Card> get_deck(){
-        return deck;
-
-    }
-
-
+    public void dealFour(java.util.List<java.util.List<Card>> cols) {
+        // remove the top card from the deck and add it to a column; repeat for each of the four columns
+        if(deck.size()==2) {
+            cols.get(0).add(deck.get(0));
+            cols.get(1).add(deck.get(1));
+            deck.remove(0);
+            deck.remove(0);
+            System.out.println("deck.size is "+deck.size());
+        }
+        else {
+            cols.get(0).add(deck.get(0));
+            cols.get(1).add(deck.get(1));
+            cols.get(2).add(deck.get(2));
+            cols.get(3).add(deck.get(3));
+            deck.remove(0);
+            deck.remove(0);
+            deck.remove(0);
+            deck.remove(0);
+            System.out.println("deck.size is " + deck.size());
+        }
+        }
 
 
 }

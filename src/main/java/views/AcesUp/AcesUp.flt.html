@@ -4,6 +4,7 @@
 <script type="text/javascript" src="/assets/webjars/jquery/2.1.3/jquery.js"></script>
 
 <body>
+<button id="to_spanish">spanish version</button>
 
 <table>
     <tr class="title">
@@ -90,6 +91,8 @@
 
 <button id="dealButton">Deal</button>
 
+
+
 <BR><font face="OCR A Std, monospace">        Move from column <input type="text" id="from_col"  /> to <input type="text" id="to_col"  /> <button id="moveButton">Move</button>
     <p class="tip">Tips: If you want to remove the card, just CLICK it.</p>
 <script>
@@ -126,6 +129,11 @@ $.getJSON("http://localhost:8080/game", function( data ) {
 display(data);
 game = data;
 });
+
+
+
+
+
 
 
 $("#dealButton").click(function(){
@@ -191,6 +199,17 @@ $.ajax({
 });
 });
 
+$("#to_spanish").click(function(){
+$.ajax({
+type:"GET",
+url: "/",
+
+success:function(){
+
+window.location.href = '/spanish';},
+
+});
+});
 
 </script>
 
