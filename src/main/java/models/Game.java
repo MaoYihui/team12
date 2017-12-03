@@ -102,12 +102,10 @@ public class Game {
                 b=1;
 
 
-        //System.out.println("\\\\\\\\\\\\\\\\a="+a);
         if (a==0) {
              if((this.cols.get(columnFrom).get(this.cols.get(columnFrom).size() - 1).getValue()==14)&&(b==1)) {
                  addCardToCol(columnTo, this.cols.get(columnFrom).get(this.cols.get(columnFrom).size() - 1));
                  removeCardFromCol(columnFrom);
-                 //addCardToCol(columnTo,this.cols.get(columnFrom).get(this.cols.get(columnFrom).size()-1));
              }
              else if((this.cols.get(columnFrom).get(this.cols.get(columnFrom).size() - 1).getValue()!=14)&&(b==1)){
                  System.out.println("good");
