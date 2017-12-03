@@ -39,6 +39,20 @@ public class test_game {
         assertEquals(0,A.cols.get(0).size());
         assertEquals(0,A.cols.get(1).size());
 
+
+        Game B = new Game();
+        Card F= new Card(0, Suit.comodines);
+        Card G= new Card(0, Suit.comodines);
+        Card H= new Card(0, Suit.espadas);
+        B.deck.buildDeck();
+        B.cols.get(0).add(F);
+        B.cols.get(1).add(G);
+        B.cols.get(2).add(H);
+
+        B.remove(2);
+        assertEquals(1,B.cols.get(0).size()+B.cols.get(1).size());
+
+
     }
 
     @Test
@@ -60,6 +74,8 @@ public class test_game {
         A.move(0,2);
         assertEquals(1,A.cols.get(2).size());
         assertEquals(0,A.cols.get(0).size());
+
+
 
 
 
