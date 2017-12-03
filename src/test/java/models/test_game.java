@@ -19,7 +19,7 @@ public class test_game {
         a.deck.buildDeck();
         a.setdealfour();
         assertEquals(48, a.deck.deck.size());
-
+        assertNotEquals(52, a.deck.deck.size());
     }
 
     @Test
@@ -89,7 +89,9 @@ public class test_game {
         Card c = new Card(3, Suit.Hearts);
      a.cols.get(0).add(c);
         assertEquals(Suit.Hearts,a.cols.get(0).get(a.cols.get(0).size()-1).getSuit());
+        assertNotEquals(Suit.Clubs, a.cols.get(0).get(a.cols.get(0).size()-1).getSuit());
         assertEquals(3,a.cols.get(0).get(a.cols.get(0).size()-1).getValue());
+        assertNotEquals(4, a.cols.get(0).get(a.cols.get(0).size()-1).getValue());
     }
 
 }
