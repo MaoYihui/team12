@@ -10,6 +10,7 @@ public class test_deck {
         Deck d = new Deck();
         d.buildDeck();
         assertEquals(52, d.deck.size());
+        assertNotEquals(51, d.deck.size());
     }
 
     @Test
@@ -17,6 +18,7 @@ public class test_deck {
         Deck d = new Deck();
         d.spanish_buildDeck();
         assertEquals(50, d.deck.size());
+        assertNotEquals(4, d.deck.size());
     }
 
     @Test
@@ -51,8 +53,13 @@ public class test_deck {
         assertEquals("2Hearts", g.cols.get(1).get(0).toString());
         assertEquals("2Diamonds", g.cols.get(2).get(0).toString());
         assertEquals("2Spades", g.cols.get(3).get(0).toString());
+        assertNotEquals("2Hearts", g.cols.get(0).get(0).toString());
+        assertNotEquals("2Clubs", g.cols.get(1).get(0).toString());
+        assertNotEquals("2Spades", g.cols.get(2).get(0).toString());
+        assertNotEquals("2Diamonds", g.cols.get(3).get(0).toString());
 
         assertEquals(48, g.deck.deck.size());
+        assertNotEquals(52, g.deck.deck.size());
 
         // test spanish game last deal
         Game sg = new Game();
