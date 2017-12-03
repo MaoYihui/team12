@@ -81,20 +81,7 @@ public class Game {
         }
     }
 
-    private boolean columnHasCards(int columnNumber) {
-        // check indicated column for number of cards; if no cards return false, otherwise return true
-     if(cols.contains(columnNumber))
 
-            return true;
-        else
-            return false;
-
-
-    }
-
-    private Card getTopCard(int columnNumber) {
-        return this.cols.get(columnNumber).get(this.cols.get(columnNumber).size()-1);
-    }
 
 
     public void move(int columnFrom, int columnTo) {
@@ -132,7 +119,7 @@ public class Game {
              }
     }
 
-    private void addCardToCol(int columnTo, Card cardToMove) {
+    public void addCardToCol(int columnTo, Card cardToMove) {
         cols.get(columnTo).add(cardToMove);
     }
 
